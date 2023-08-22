@@ -192,6 +192,14 @@ public class Helper {
 		this.servicename = servicename;
 	}
 	
+	public List<BookingInfo> getBookInfo() {
+		return bookInfo;
+	}
+
+	public void setBookInfo(List<BookingInfo> bookInfo) {
+		this.bookInfo = bookInfo;
+	}
+
 	@Override
 	public String toString() {
 		return "Helper [helperId=" + helperId + ", helperName=" + helperName + ", helperPassword=" + helperPassword

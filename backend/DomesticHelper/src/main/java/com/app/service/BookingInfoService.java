@@ -12,7 +12,7 @@ import com.app.Entity.User;
 public interface BookingInfoService {
 
 	public List<BookingInfo>allBookingInfo();
-	public List<User>BookingInfoByIdUser(int id);
-	public List<Helper>BookingInfoByIdHelper(int id);
 	
+	public List<Helper>getHelperForUserWhoBooked(int id);
+	public List<User>getUsertoSeeBooking(int id);
 }

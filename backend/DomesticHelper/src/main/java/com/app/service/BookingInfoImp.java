@@ -10,43 +10,51 @@ import com.app.Entity.BookingInfo;
 import com.app.Entity.Helper;
 import com.app.Entity.User;
 import com.app.Repository.BookingInfoRepository;
+import com.app.Repository.HelperRepository;
+import com.app.Repository.UserRepository;
+
 @Service
-public class BookingInfoImp  implements BookingInfoService{
-@Autowired
-BookingInfoRepository bInfoRepo;
+public class BookingInfoImp implements BookingInfoService {
+	@Autowired
+	BookingInfoRepository bInfoRepo;
+	@Autowired
+	private UserRepository uRepo;
+	@Autowired
+	private HelperRepository hRepo;
+
 	@Override
 	public List<BookingInfo> allBookingInfo() {
-		// TODO Auto-generated method stub
-		return bInfoRepo.findAll() ;
-	}
-	@Override
-	public List<User> BookingInfoByIdUser(int id) {
-		// TODO Auto-generated method stub
-		List<BookingInfo>bi=allBookingInfo();
-		
-		List<User>biu=new ArrayList<User>();
-		
-		for(int i=0;i<bi.size();i++) {
-			BookingInfo firstBook=bi.get(i);
-			User uId=firstBook.getUser();
-			biu.add(uId);
-			
-		}
-		
-		return biu;
-	
-	}
-	@Override
-	public List<Helper> BookingInfoByIdHelper(int id) {
-		// TODO Auto-generated method stub
-		List<BookingInfo>bi=allBookingInfo();
-		List<Helper>bhi=new ArrayList<Helper>();
-		for(int i=0;i<bi.size();i++) {
-			bhi.add(bi.get(i).getHelper());
-		}
-		return bhi;
+
+		return bInfoRepo.findAll();
 	}
 
 	
+
+	@Override
+	public List<Helper> getHelperForUserWhoBooked(int id) {
+		// return booked helper id by passing userId
+
+		List<Integer> helperBooked = bInfoRepo.getHelperForUserWhoBooked(id);
+		List<Helper> h = new ArrayList<Helper>();
+
+		for (int i = 0; i < helperBooked.size(); i++) {
+			int idHelper = helperBooked.get(i);
+			h.add(hRepo.findById(idHelper).get());
+		}
+		return h;
+	}
+
+	@Override
+	public List<User> getUsertoSeeBooking(int id) {
+		List<Integer> helperBooked = bInfoRepo.getUsertoSeeBooking(id);
+		List<User> h = new ArrayList<User>();
+
+		for (int i = 0; i < helperBooked.size(); i++) {
+			int idUser = helperBooked.get(i);
+			h.add(uRepo.findById(idUser).get());
+		}
+		return h;
+
+	}
 
 }

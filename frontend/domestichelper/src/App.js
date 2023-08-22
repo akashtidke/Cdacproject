@@ -1,9 +1,9 @@
 import logo from './logo.svg';
 import './App.css';
-import UserForm from './componenets/UserForm';
+
 function App() {
   return (
-    <UserForm/>
+   <h1>akash</h1>
        
   );
 }

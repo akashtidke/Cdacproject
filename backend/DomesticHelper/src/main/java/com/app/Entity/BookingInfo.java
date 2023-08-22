@@ -11,6 +11,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class BookingInfo {
@@ -26,10 +27,17 @@ public class BookingInfo {
 	
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "helperId")
+	
 	private Helper helper;
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "userId")
+	
 	private User user;
+
+	public BookingInfo() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	public BookingInfo(int bookingId, Date bookingStartDate, Date bookingEndDate, Helper helper, User user) {
 		super();
@@ -39,6 +47,7 @@ public class BookingInfo {
 		this.helper = helper;
 		this.user = user;
 	}
+	
 
 	public User getUser() {
 		return user;

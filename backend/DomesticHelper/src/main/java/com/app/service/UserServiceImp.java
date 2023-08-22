@@ -11,7 +11,6 @@ import com.app.Repository.UserRepository;
 public class UserServiceImp implements UserService {
 	@Autowired
 	private UserRepository uRepo;
-
 	@Override
 	public List<User> getAllUsers() {
 		List<User>u=uRepo.findAll();
@@ -119,7 +118,7 @@ public class UserServiceImp implements UserService {
 
 	@Override
 	public void UpdatePassword(int id,String password) {
-		// TODO Auto-generated method stub
+		
 		User u1=uRepo.findById(id).get();
 		u1.setUserPassword(password);
 		uRepo.save(u1);
@@ -128,10 +127,20 @@ public class UserServiceImp implements UserService {
 
 	@Override
 	public void deleteUserById(int  id) {
-		// TODO Auto-generated method stub
+		
 		uRepo.deleteById(id);
 		
 		
+	}
+
+	@Override
+	public boolean login(String email, String password) {
+		
+	               User u=   uRepo.login(email, password);	
+	               if(u==null) {
+	            	   return false;
+	               }
+		return true;
 	}
 	
 

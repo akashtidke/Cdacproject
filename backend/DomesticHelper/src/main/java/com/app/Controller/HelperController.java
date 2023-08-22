@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.app.Entity.BookingInfo;
 import com.app.Entity.Helper;
+import com.app.Entity.User;
 import com.app.service.BookingInfoService;
 import com.app.service.HelperService;
 
@@ -24,18 +25,20 @@ public class HelperController {
 	private HelperService helperservice;
 	@Autowired
 	private BookingInfoService bInfoService;
-
+	
+	
 	@GetMapping("/bookingInfo")
 	public List<BookingInfo> getAllBookingInfo(){
 		
 		return bInfoService.allBookingInfo();
 	}
-	@GetMapping("/bookingInfo/{id}")
-	public List<Helper> getAllBookedHelpers(@PathVariable int id) {
+	@GetMapping("/bookingInfoHelper/{id}")
+	public List<User> getAllBookedHelpers(@PathVariable int id) {
 
-		return bInfoService.BookingInfoByIdHelper(id);
+		return bInfoService.getUsertoSeeBooking(id);
 	}
-
+	
+	
 	@PostMapping("/insert")
 	public Helper insertHelper(@RequestBody Helper h) {
 
