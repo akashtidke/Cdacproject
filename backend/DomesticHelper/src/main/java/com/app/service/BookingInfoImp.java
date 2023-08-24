@@ -35,8 +35,8 @@ public class BookingInfoImp implements BookingInfoService {
 		// return booked helper id by passing userId
 
 		List<Integer> helperBooked = bInfoRepo.getHelperForUserWhoBooked(id);
-		List<Helper> h = new ArrayList<Helper>();
-
+		
+		List<Helper>h=new ArrayList<>();
 		for (int i = 0; i < helperBooked.size(); i++) {
 			int idHelper = helperBooked.get(i);
 			h.add(hRepo.findById(idHelper).get());

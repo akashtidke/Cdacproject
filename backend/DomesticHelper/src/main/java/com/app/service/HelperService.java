@@ -18,6 +18,6 @@ public interface HelperService {
 	
 	public void updateHelperDetails(Helper h);
 	public void deleteHelper(int id);
-	
+	public boolean login(String email,String password);
 
 }

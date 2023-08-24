@@ -30,6 +30,7 @@ public class BookingInfo {
 	
 	private Helper helper;
 	@ManyToOne(fetch = FetchType.EAGER)
+	
 	@JoinColumn(name = "userId")
 	
 	private User user;

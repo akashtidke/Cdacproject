@@ -18,7 +18,8 @@ import com.app.Entity.User;
 @Repository
 public interface HelperRepository extends JpaRepository<Helper,Integer>{
 	
-	
+	@Query("SELECT u FROM Helper u WHERE u.helperEmail = :email AND u.helperPassword = :password")
+	public User login(String email,String password);
 	
 
 }

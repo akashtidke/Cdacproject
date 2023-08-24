@@ -3,6 +3,7 @@ package com.app.Controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,6 +21,7 @@ import com.app.service.HelperService;
 
 @RestController
 @RequestMapping("/helper")
+@CrossOrigin("http://localhost:3000")
 public class HelperController {
 	@Autowired
 	private HelperService helperservice;
@@ -72,5 +74,10 @@ public class HelperController {
 	public String deleted(@PathVariable int id) {
 		helperservice.deleteHelper(id);
 		return "deleted";
+	}
+	@GetMapping("/login/{helperEmail}/{helperPassword}")
+	public boolean login(@PathVariable String helperEmail,@PathVariable String helperPassword) {
+		
+		return helperservice.login(helperEmail, helperPassword);
 	}
 }

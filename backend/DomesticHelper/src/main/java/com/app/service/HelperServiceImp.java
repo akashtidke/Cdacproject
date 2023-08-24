@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.app.Entity.Helper;
+import com.app.Entity.User;
 import com.app.Repository.HelperRepository;
 @Service
 public class HelperServiceImp implements HelperService {
@@ -83,6 +84,18 @@ public class HelperServiceImp implements HelperService {
 		// TODO Auto-generated method stub
 		hRepo.deleteById(id);
 		
+	}
+
+	
+
+	@Override
+	public boolean login(String email, String password) {
+		// TODO Auto-generated method stub
+		User u=   hRepo.login(email, password);	
+        if(u==null) {
+     	   return false;
+        }
+return true;
 	}
 
 }

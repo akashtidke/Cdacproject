@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -27,22 +28,24 @@ public class User {
 	private int userId;
 	private String userName;
 	private String userPassword;
+	@Column(unique = true)
 	private String userEmail;
 	private String userMobileNumber;
+	
 	private String userAddress;
+	@Column(unique = true)
 	private String userAdharcard;
 	private String userCity;
 	private String userPincode;
-	@OneToMany(mappedBy = "user")
-	@JsonIgnore
-	private List<Helper>userperHelperList;
+
 @OneToMany(mappedBy = "user")
 @JsonIgnore
 private List<BookingInfo>bookinInfoUser;
 	
 	
+
 	public User(int userId, String userName, String userPassword, String userEmail, String userMobileNumber,
-		String userAddress, String userAdharcard, String userCity, String userPincode, List<Helper> userperHelperList,
+		String userAddress, String userAdharcard, String userCity, String userPincode,
 		List<BookingInfo> bookinInfoUser) {
 	super();
 	this.userId = userId;
@@ -54,7 +57,6 @@ private List<BookingInfo>bookinInfoUser;
 	this.userAdharcard = userAdharcard;
 	this.userCity = userCity;
 	this.userPincode = userPincode;
-	this.userperHelperList = userperHelperList;
 	this.bookinInfoUser = bookinInfoUser;
 }
 	public List<BookingInfo> getBookinInfoUser() {
@@ -63,31 +65,11 @@ private List<BookingInfo>bookinInfoUser;
 public void setBookinInfoUser(List<BookingInfo> bookinInfoUser) {
 	this.bookinInfoUser = bookinInfoUser;
 }
-	public List<Helper> getUserperHelperList() {
-		return userperHelperList;
-	}
-	public void setUserperHelperList(List<Helper> userperHelperList) {
-		this.userperHelperList = userperHelperList;
-	}
 	public User() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public User(int userId, String userName, String userPassword, String userEmail, String userMobileNumber,
-			String userAddress, String userAdharcard, String userCity, String userPincode,
-			List<Helper> userperHelperList) {
-		super();
-		this.userId = userId;
-		this.userName = userName;
-		this.userPassword = userPassword;
-		this.userEmail = userEmail;
-		this.userMobileNumber = userMobileNumber;
-		this.userAddress = userAddress;
-		this.userAdharcard = userAdharcard;
-		this.userCity = userCity;
-		this.userPincode = userPincode;
-		this.userperHelperList = userperHelperList;
-	}
+	
 	public User(int userId, String userName, String userPassword, String userEmail, String userMobileNumber,
 			String userAddress, String userAdharcard, String userCity, String userPincode) {
 		super();
@@ -101,6 +83,7 @@ public void setBookinInfoUser(List<BookingInfo> bookinInfoUser) {
 		this.userCity = userCity;
 		this.userPincode = userPincode;
 	}
+	
 	public int getUserId() {
 		return userId;
 	}

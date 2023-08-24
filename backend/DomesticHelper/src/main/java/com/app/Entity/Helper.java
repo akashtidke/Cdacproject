@@ -12,6 +12,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
+
+import org.springframework.data.relational.core.mapping.Embedded.Nullable;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -23,10 +26,13 @@ public class Helper {
 	private int helperId;
 	private String helperName;
 	private String helperPassword;
-	@Column(unique = true)
+	//(unique = true,nullable=false)
+@Column(unique = true)
 	private String helperEmail;
+	
 	private String helperMobileNumber;
 	private String helperAddress;
+	@Column(unique = true)
 	private String helperAdharcard;
 	private String helperCity;
 	private String helperPincode;
@@ -44,18 +50,19 @@ public class Helper {
 	@JsonIgnore
 	private List<BookingInfo>bookInfo;
 	
-	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "userId")
-	private User user;
+	
 	
 	public Helper() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 	
+
+
 	public Helper(int helperId, String helperName, String helperPassword, String helperEmail, String helperMobileNumber,
 			String helperAddress, String helperAdharcard, String helperCity, String helperPincode, String servicename,
-			boolean isAvalible, List<Review> reviewList, List<ServiceName> serviceNameList, User user) {
+			boolean isAvalible, List<Review> reviewList, List<ServiceName> serviceNameList,
+			List<BookingInfo> bookInfo) {
 		super();
 		this.helperId = helperId;
 		this.helperName = helperName;
@@ -70,8 +77,10 @@ public class Helper {
 		this.isAvalible = isAvalible;
 		this.reviewList = reviewList;
 		ServiceNameList = serviceNameList;
-		this.user = user;
+		this.bookInfo = bookInfo;
 	}
+
+
 
 	public List<Review> getReviewList() {
 		return reviewList;
@@ -85,12 +94,7 @@ public class Helper {
 	public void setServiceNameList(List<ServiceName> serviceNameList) {
 		ServiceNameList = serviceNameList;
 	}
-	public User getUser() {
-		return user;
-	}
-	public void setUser(User user) {
-		this.user = user;
-	}
+	
 	public Helper(int helperId, String helperName, String helperPassword, String helperEmail, String helperMobileNumber,
 			String helperAddress, String helperAdharcard, String helperCity, String helperPincode,
 			String servicename, boolean isAvalible) {
