@@ -22,7 +22,7 @@ public class HelperServiceImp implements HelperService {
 		h1.setHelperPassword(h.getHelperPassword());
 		h1.setHelperMobileNumber(h.getHelperMobileNumber());
 		h1.setHelperAddress(h.getHelperAddress());
-		h1.setHelperAdharcard(h.getHelperAddress());
+		h1.setHelperAdharcard(h.getHelperAdharcard()	);
 		h1.setHelperCity(h.getHelperCity());
 		h1.setHelperPincode(h.getHelperPincode());
 		h1.setServicename(h.getServicename());
@@ -91,7 +91,7 @@ public class HelperServiceImp implements HelperService {
 	@Override
 	public boolean login(String email, String password) {
 		// TODO Auto-generated method stub
-		User u=   hRepo.login(email, password);	
+		Helper u=   hRepo.login(email, password);	
         if(u==null) {
      	   return false;
         }

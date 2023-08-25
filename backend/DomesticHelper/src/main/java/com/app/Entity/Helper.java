@@ -26,7 +26,7 @@ public class Helper {
 	private int helperId;
 	private String helperName;
 	private String helperPassword;
-	//(unique = true,nullable=false)
+	
 @Column(unique = true)
 	private String helperEmail;
 	

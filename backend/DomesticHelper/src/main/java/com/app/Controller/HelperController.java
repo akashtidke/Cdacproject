@@ -21,7 +21,7 @@ import com.app.service.HelperService;
 
 @RestController
 @RequestMapping("/helper")
-@CrossOrigin("http://localhost:3000")
+
 public class HelperController {
 	@Autowired
 	private HelperService helperservice;
@@ -75,9 +75,9 @@ public class HelperController {
 		helperservice.deleteHelper(id);
 		return "deleted";
 	}
-	@GetMapping("/login/{helperEmail}/{helperPassword}")
-	public boolean login(@PathVariable String helperEmail,@PathVariable String helperPassword) {
-		
-		return helperservice.login(helperEmail, helperPassword);
+	@PostMapping("/login")
+	public boolean login(@RequestBody Helper h) {
+		System.out.print(h.getHelperEmail()+""+ h.getHelperPassword());
+		return helperservice.login(h.getHelperEmail(), h.getHelperPassword());
 	}
 }

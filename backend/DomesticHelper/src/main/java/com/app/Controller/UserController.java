@@ -55,7 +55,7 @@ public class UserController {
 		return u;
 	}
 
-	@PostMapping("/userinsert")
+	@PostMapping("/insert")
 	public String insertUser(@RequestBody User u) {
 
 		userservice.addUser(u);
@@ -125,10 +125,10 @@ public class UserController {
 		userservice.deleteUserById(id);
 		return "your account deleted";
 	}
-	@GetMapping("/login/{userEmail}/{userPassword}")
-	public boolean login(@PathVariable String userEmail,@PathVariable String userPassword) {
+@PostMapping("/login")
+	public boolean login(@RequestBody User u) {
 		
-		return userservice.login(userEmail,userPassword);
+		return userservice.login(u.getUserEmail(),u.getUserPassword());
 	}
 
 }
