@@ -1,0 +1,5 @@
+.home-container {
+    background-image: url('./user/bgimg1234.jpg'); /* Replace with the actual path to your image */
+    background-size: cover;
+    background-position: center;
+  }

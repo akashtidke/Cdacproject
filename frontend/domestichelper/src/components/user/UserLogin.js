@@ -3,7 +3,7 @@ import axios from 'axios';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
-
+import styles from './UserLogin.module.css'
 const UserLogin = () => {
   const navigate = useNavigate(); // Initialize the useNavigate hook
   const [formData, setFormData] = useState({
@@ -44,8 +44,8 @@ const UserLogin = () => {
   };
 
   return (
-    <div className="container mt-5">
-      <h2>Login</h2>
+    <div className={styles.container}>
+      <h2>USer Login</h2>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <input
@@ -56,6 +56,7 @@ const UserLogin = () => {
             onChange={handleChange}
           />
         </div>
+        <br/>
         <div className="form-group">
           <input
             type="password"
@@ -65,9 +66,11 @@ const UserLogin = () => {
             onChange={handleChange}
           />
         </div>
-        <button type="submit" className="btn btn-primary mt-3">
-          Log In
-        </button>
+       <center>
+       <button type="submit" className="btn btn-primary mt-3">Login</button>
+       </center>
+        
+        
       </form>
     </div>
   );

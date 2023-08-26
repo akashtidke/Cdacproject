@@ -34,10 +34,10 @@ public class HelperController {
 		
 		return bInfoService.allBookingInfo();
 	}
-	@GetMapping("/bookingInfoHelper/{id}")
-	public List<User> getAllBookedHelpers(@PathVariable int id) {
+	@PostMapping("/bookingInfoHelper")
+	public List<User> getAllBookedHelpers(@RequestBody Helper h) {
 
-		return bInfoService.getUsertoSeeBooking(id);
+		return bInfoService.getUsertoSeeBooking(h.getHelperId());
 	}
 	
 	
@@ -76,8 +76,12 @@ public class HelperController {
 		return "deleted";
 	}
 	@PostMapping("/login")
-	public boolean login(@RequestBody Helper h) {
+	public Helper login(@RequestBody Helper h) {
 		System.out.print(h.getHelperEmail()+""+ h.getHelperPassword());
-		return helperservice.login(h.getHelperEmail(), h.getHelperPassword());
+		
+	return	helperservice.login(h.getHelperEmail(), h.getHelperPassword());
+	
 	}
+	
+	
 }

@@ -89,13 +89,10 @@ public class HelperServiceImp implements HelperService {
 	
 
 	@Override
-	public boolean login(String email, String password) {
+	public Helper login(String email, String password) {
 		// TODO Auto-generated method stub
 		Helper u=   hRepo.login(email, password);	
-        if(u==null) {
-     	   return false;
-        }
-return true;
+        return u;
 	}
 
 }

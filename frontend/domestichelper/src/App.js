@@ -11,7 +11,10 @@ import UserDashboard from './components/user/UserDashboard';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import HelperDashboard from './components/helper/HelperDasboard';
-
+import HelperProfile from './components/helper/HelperProfile'
+import HelperUpdateProfile from './components/helper/HelperUpdateProfile'
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import BookingDetails from './components/helper/BookingDetails'
 function App() {
   return (
     <BrowserRouter>
@@ -26,6 +29,9 @@ function App() {
         <Route path="/helpersignup" element={<HelperSignup />} />
         <Route path="/userdashboard" element={<UserDashboard/>} />
         <Route path="/helperdashboard" element={<HelperDashboard/>} />
+        <Route path="/helper/profile" element={<HelperProfile/>} />
+        <Route path="/helper/updateprofile" element={<HelperUpdateProfile/>} />
+        <Route path="/helper/bookingdetails" element={<BookingDetails/>} />
       </Routes>
     </BrowserRouter>
   );

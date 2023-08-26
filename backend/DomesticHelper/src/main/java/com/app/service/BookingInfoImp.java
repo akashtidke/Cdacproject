@@ -53,6 +53,7 @@ public class BookingInfoImp implements BookingInfoService {
 			int idUser = helperBooked.get(i);
 			h.add(uRepo.findById(idUser).get());
 		}
+		System.out.print(h);
 		return h;
 
 	}

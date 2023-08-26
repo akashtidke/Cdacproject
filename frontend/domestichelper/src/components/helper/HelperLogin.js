@@ -3,7 +3,7 @@ import axios from 'axios';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
-
+import './HelperLogin.module.css';
 const UserLogin = () => {
   const navigate = useNavigate(); // Initialize the useNavigate hook
   const [formData, setFormData] = useState({
@@ -21,9 +21,13 @@ const UserLogin = () => {
       });
 
       const isAuthenticated = response.data;
-
+console.log(JSON.stringify(isAuthenticated));
       if (isAuthenticated) {
         toast.success('Login successful');
+
+        // Store the authentication token in local storage
+        localStorage.setItem('LoginHelperData', JSON.stringify(isAuthenticated)); // Replace 'yourAuthToken' with the actual token
+
         navigate('/helperdashboard'); // Redirect to dashboard page
       } else {
         toast.error('Invalid credentials');
