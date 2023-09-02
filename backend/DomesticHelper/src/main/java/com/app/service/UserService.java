@@ -22,6 +22,6 @@ public interface UserService {
 	public void updatePincode(int id,String pincode);
 	public void UpdatePassword(int id,String password);
 	public void deleteUserById(int id);
-	public boolean login(String email,String password);
+	public User login(String email,String password);
 	
 }

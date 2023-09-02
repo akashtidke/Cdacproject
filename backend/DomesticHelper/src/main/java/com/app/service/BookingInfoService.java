@@ -15,4 +15,5 @@ public interface BookingInfoService {
 	
 	public List<Helper>getHelperForUserWhoBooked(int id);
 	public List<User>getUsertoSeeBooking(int id);
+	public void setBooking(BookingInfo b);
 }

@@ -37,16 +37,22 @@ public class UserController {
 
 		return rService.getAllReviews();
 	}
+	@PostMapping("/bookingsend")
+	public String bookingSend(@RequestBody BookingInfo b) {
+		
+		bookInfoService.setBooking(b);
+		return "Booking confirmed";
+	}
 
 	@GetMapping("/bookingInfo")
 	public List<BookingInfo> allBooking() {
 		return bookInfoService.allBookingInfo();
 	}
 
-	@GetMapping("/bookingInfoUser/{id}")
-	public List<Helper> allBookingByIdUser(@PathVariable int id) {
+	@PostMapping("/bookingInfoUser")
+	public List<Helper> allBookingByIdUser(@RequestBody  User u) {
 		
-		return bookInfoService.getHelperForUserWhoBooked(id);
+		return bookInfoService.getHelperForUserWhoBooked(u.getUserId());
 	}
 
 	@GetMapping("/list")
@@ -126,7 +132,7 @@ public class UserController {
 		return "your account deleted";
 	}
 @PostMapping("/login")
-	public boolean login(@RequestBody User u) {
+	public User login(@RequestBody User u) {
 		
 		return userservice.login(u.getUserEmail(),u.getUserPassword());
 	}

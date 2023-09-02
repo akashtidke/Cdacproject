@@ -134,13 +134,10 @@ public class UserServiceImp implements UserService {
 	}
 
 	@Override
-	public boolean login(String email, String password) {
+	public User login(String email, String password) {
 		
 	               User u=   uRepo.login(email, password);	
-	               if(u==null) {
-	            	   return false;
-	               }
-		return true;
+	              return u;
 	}
 	
 

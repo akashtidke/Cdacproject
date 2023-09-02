@@ -15,6 +15,9 @@ import HelperProfile from './components/helper/HelperProfile'
 import HelperUpdateProfile from './components/helper/HelperUpdateProfile'
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import BookingDetails from './components/helper/BookingDetails'
+import UserBookingDetails from'./components/user/GetAllHelpers'
+import UserProfile from './components/user/UserProfile';
+import UserHome from './components/user/UserHome'
 function App() {
   return (
     <BrowserRouter>
@@ -32,6 +35,9 @@ function App() {
         <Route path="/helper/profile" element={<HelperProfile/>} />
         <Route path="/helper/updateprofile" element={<HelperUpdateProfile/>} />
         <Route path="/helper/bookingdetails" element={<BookingDetails/>} />
+        <Route path="/user/bookingdetails" element={<UserBookingDetails/>} />
+        <Route path="/user/profile" element={<UserProfile/>} />
+        <Route path="/user/home" element={<UserHome/>} />
       </Routes>
     </BrowserRouter>
   );

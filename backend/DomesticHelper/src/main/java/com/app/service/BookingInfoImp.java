@@ -58,4 +58,23 @@ public class BookingInfoImp implements BookingInfoService {
 
 	}
 
+
+
+	@Override
+	public void setBooking(BookingInfo b) {
+		// TODO Auto-generated method stub
+		BookingInfo b1=new BookingInfo();
+		b1.setHelper(b.getHelper());
+		b1.setUser(b.getUser());
+		b1.setBookingId(b.getBookingId());
+		b1.setBookingStartDate(b.getBookingStartDate());
+		b1.setBookingEndDate(b.getBookingEndDate());
+		bInfoRepo.save(b1);
+		
+	}
+
+
+
+	
+
 }
