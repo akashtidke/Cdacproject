@@ -1,0 +1,37 @@
+/* UserHome.css */
+
+.UserHome {
+    background-color: #f8f9fa;
+    padding: 20px;
+  }
+  
+  .text-primary {
+    color: #007bff;
+  }
+  
+  .list-unstyled {
+    padding-left: 0;
+  }
+  
+  .mb-4 {
+    margin-bottom: 1rem;
+  }
+  
+  .profile-card {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .btn-success {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+  }
+  
+  .btn-success:hover {
+    background-color: #218838;
+  }
+  
