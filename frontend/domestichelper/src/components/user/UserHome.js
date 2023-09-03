@@ -1,8 +1,36 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import BookingSend from './BookingSend';
+const storedUserData = localStorage.getItem('UserLoginData');
+const userData =JSON.parse( storedUserData);
+function sendData(helperId){
+  
+console.log(helperId);
+console.log(userData.userId);
+  const bookingData = {
+    bookingStartDate: '2023-09-02', // Replace with your actual booking start date
+    bookingEndDate: '2023-09-05',   // Replace with your actual booking end date
+    helper: {
+      helperId: helperId,                // Replace with the actual helper ID
+      // Other helper properties here
+    },
+    user: {
+      userId: userData.userId,                  // Replace with the actual user ID
+      // Other user properties here
+    },
+  };
+  axios.post('http://localhost:8080/user/bookingsend', bookingData)
+    .then((response) => {
+      // Handle the success response from the server
+      console.log('Booking data sent successfully:', response.data);
+    })
+    .catch((error) => {
+      // Handle any errors that occurred during the request
+      console.error('Error sending booking data:', error);
+    });
+
+     }
 const UserHome = () => {
-   
+  
   const [profileList, setProfileList] = useState([]);
 
   useEffect(() => {
@@ -40,7 +68,7 @@ const UserHome = () => {
           <p>Pnicode: {profile.helperPincode}</p>
           <p>City: {profile.helperCity}</p>
           <p>MobileNumber: {profile.helperMobileNumber}</p>
-          <button onClick={BookingSend} > Book</button>
+          <button type='submit'id={profile.helperId} onClick={() => sendData(profile.helperId)} > Book</button>
           {/* Add more properties you want to display */}
         </li>
       ))}

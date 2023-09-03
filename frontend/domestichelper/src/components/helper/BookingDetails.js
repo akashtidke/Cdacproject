@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
+function cnacleBooking(){
+  console.log("booking cancled");
+}
 const BookingDetails = () => {
   const storedUserData = localStorage.getItem('LoginHelperData');
 const userData =JSON.parse( storedUserData);
@@ -13,6 +16,7 @@ const userData =JSON.parse( storedUserData);
         const response = await axios.post('http://localhost:8080/helper/bookingInfoHelper', userData);
 
         const profileDataList = response.data;
+        
       console.log(profileDataList)
      
         setProfileList(profileDataList);
@@ -41,6 +45,7 @@ const userData =JSON.parse( storedUserData);
           <p>City: {profile.userCity}</p>
           <p>MobileNumber: {profile.userMobileNumber}</p>
           {/* Add more properties you want to display */}
+          <button type='submit'  onClick={cnacleBooking}> cancle Booking</button>
         </li>
       ))}
     </ul>
