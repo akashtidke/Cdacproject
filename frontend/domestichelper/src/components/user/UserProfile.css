@@ -1,0 +1,29 @@
+/* UserProfile.css */
+
+.UserProfile {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .user-info {
+    margin-top: 20px;
+  }
+  
+  .user-info .row {
+    margin-bottom: 10px;
+  }
+  
+  .user-info strong {
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .user-info span {
+    color: #666;
+  }
+  
+  /* Add more custom styles as needed */
+  

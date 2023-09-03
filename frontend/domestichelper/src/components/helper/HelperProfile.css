@@ -1,0 +1,29 @@
+/* HelperProfile.css */
+
+.HelperProfile {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .helper-info {
+    margin-top: 20px;
+  }
+  
+  .helper-info .row {
+    margin-bottom: 10px;
+  }
+  
+  .helper-info strong {
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .helper-info span {
+    color: #666;
+  }
+  
+  /* Add more custom styles as needed */
+  
