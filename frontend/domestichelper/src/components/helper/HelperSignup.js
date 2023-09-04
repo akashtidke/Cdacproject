@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import bg from "./bg.jpg";
 import 'react-toastify/dist/ReactToastify.css';
 const HelperSignup = () => {
   const [formData, setFormData] = useState({
@@ -41,7 +42,8 @@ const HelperSignup = () => {
   };
 
   return (
-    <div className="container mt-5">
+    <div className="container-fluid" style={{ backgroundImage: `url(${bg})`, height: '1000px', backgroundPosition: "center", backgroundRepeat: "no-repeat", backgroundSize: 'cover' }} >
+      <div className="container mt-5">
       <h2>Helper Signup</h2>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
@@ -136,6 +138,7 @@ const HelperSignup = () => {
         </div>
         <button type="submit" className="btn btn-primary mt-3">Sign Up</button>
       </form>
+    </div>
     </div>
   );
 };

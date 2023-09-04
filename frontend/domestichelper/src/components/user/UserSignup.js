@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import bg from "./bg.jpg";
+
 const UserSignup = () => {
   const [formData, setFormData] = useState({
     userName: '',
@@ -36,6 +38,7 @@ const UserSignup = () => {
   };
 
   return (
+    <div className="container-fluid" style={{ backgroundImage: `url(${bg})`, height: '1000px', backgroundPosition: "center", backgroundRepeat: "no-repeat", backgroundSize: 'cover' }}> 
     <div className="container mt-5">
       <h2>User Signup</h2>
       <form onSubmit={handleSubmit}>
@@ -113,6 +116,7 @@ const UserSignup = () => {
         </div>
         <button type="submit" className="btn btn-primary">Sign Up</button>
       </form>
+    </div>
     </div>
   );
 };

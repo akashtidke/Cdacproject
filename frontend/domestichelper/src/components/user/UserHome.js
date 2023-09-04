@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './UserHome.css'; // Import your custom CSS file
+import bg from "./bg.jpg";
 
 const storedUserData = localStorage.getItem('UserLoginData');
 const userData = JSON.parse(storedUserData);
@@ -24,6 +25,7 @@ function sendData(helperId) {
     axios.post('http://localhost:8080/user/bookingsend', bookingData)
       .then((response) => {
         // Handle the success response from the server
+        alert("booking confirm")
         console.log('Booking data sent successfully:', response.data);
       })
       .catch((error) => {
@@ -56,6 +58,7 @@ const UserHome = () => {
   }, []);
 
   return (
+    <div className="container-fluid" style={{ backgroundImage: `url(${bg})`, height: '1000px', backgroundPosition: "center", backgroundRepeat: "no-repeat", backgroundSize: 'cover' }}>
     <div className="container mt-5 UserHome">
       <h1 className="text-center text-primary">Helper Profiles</h1>
       <ul className="list-unstyled">
@@ -88,6 +91,7 @@ const UserHome = () => {
           </li>
         ))}
       </ul>
+    </div>
     </div>
   );
 };

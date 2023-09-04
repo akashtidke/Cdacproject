@@ -1,8 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
+import bg from "./bg.jpg";
 const Navbar = () => {
   return (
+    
+
     <nav>
       <ul>
         <li>
@@ -25,6 +28,7 @@ const Navbar = () => {
         </li>
       </ul>
     </nav>
+    
   );
 };
 
