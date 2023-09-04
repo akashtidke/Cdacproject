@@ -24,6 +24,7 @@ const UserLogin = () => {
 
       if (isAuthenticated) {
         toast.success('Login successful');
+        alert("login successful");
         localStorage.setItem('UserLoginData', JSON.stringify(isAuthenticated));
         navigate('/userdashboard'); // Redirect to dashboard page
       } else {

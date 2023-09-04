@@ -4,6 +4,8 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import './HelperLogin.module.css';
+import bg from "./bg.jpg";
+
 const UserLogin = () => {
   const navigate = useNavigate(); // Initialize the useNavigate hook
   const [formData, setFormData] = useState({
@@ -48,6 +50,7 @@ console.log(JSON.stringify(isAuthenticated));
   };
 
   return (
+    <div className="container-fluid" style={{ backgroundImage: `url(${bg})`, height: '1000px', backgroundPosition: "center", backgroundRepeat: "no-repeat", backgroundSize: 'cover' }} > 
     <div className="container mt-5">
       <h2>Login</h2>
       <form onSubmit={handleSubmit}>
@@ -73,6 +76,7 @@ console.log(JSON.stringify(isAuthenticated));
           Log In
         </button>
       </form>
+    </div>
     </div>
   );
 };

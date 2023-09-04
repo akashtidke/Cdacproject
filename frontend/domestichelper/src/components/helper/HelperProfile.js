@@ -1,11 +1,13 @@
 import React from 'react';
 import './HelperProfile.css'; // Import your custom CSS file
+import bg from "./bg.jpg";
 
 const HelperProfile = () => {
   const storedUserData = localStorage.getItem('LoginHelperData');
   const userData = JSON.parse(storedUserData);
 
   return (
+    <div  className="container-fluid" style={{ backgroundImage: `url(${bg})`, height: '1000px', backgroundPosition: "center", backgroundRepeat: "no-repeat", backgroundSize: 'cover' }} >
     <div className="container HelperProfile">
       <h2>Welcome to the Home Page</h2>
       <div className="helper-info">
@@ -74,6 +76,7 @@ const HelperProfile = () => {
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 };

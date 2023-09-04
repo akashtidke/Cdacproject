@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './BookingDetails.css'; // Import your custom CSS file
-
+import bg from "./bg.jpg";
 function cancelBooking() {
+  alert("Booking cancle");
   console.log('Booking canceled');
 }
 
@@ -38,6 +39,7 @@ const BookingDetails = () => {
   const parsedUserData = JSON.parse(getUserData) || [];
 
   return (
+    <div className="container-fluid" style={{ backgroundImage: `url(${bg})`, height: '1000px', backgroundPosition: "center", backgroundRepeat: "no-repeat", backgroundSize: 'cover' }} >
     <div className="container mt-5 BookingDetails">
       <h1 className="text-center text-primary">Booking Details</h1>
       <ul className="list-unstyled">
@@ -72,6 +74,7 @@ const BookingDetails = () => {
           </li>
         ))}
       </ul>
+    </div>
     </div>
   );
 };

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import bg from "./bg.jpg";
 
 const HelperSignup = () => {
     const storedUserData = localStorage.getItem('LoginHelperData');
@@ -45,6 +46,7 @@ const userData = JSON.parse( storedUserData);
   };
 
   return (
+    <div className="container-fluid" style={{ backgroundImage: `url(${bg})`, height: '1000px', backgroundPosition: "center", backgroundRepeat: "no-repeat", backgroundSize: 'cover' }} >
     <div className="container mt-5">
       <h2>Helper Signup</h2>
       <form onSubmit={handleSubmit}>
@@ -140,7 +142,7 @@ const userData = JSON.parse( storedUserData);
         </div>
         <button type="submit" className="btn btn-primary mt-3">Update</button>
       </form>
-    </div>
+    </div></div>
   );
 };
 
